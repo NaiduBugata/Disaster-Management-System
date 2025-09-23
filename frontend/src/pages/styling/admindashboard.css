@@ -1,0 +1,146 @@
+/* === General Styling === */
+body {
+  background-color: #f4f7f9; /* Light grey background for contrast */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: black;
+  margin: 0;
+}
+
+/* === Dashboard Container === */
+.admin-dashboard {
+  max-width: 1400px;
+  margin: 50px auto; /* Center the dashboard */
+  padding: 20px;
+  display: grid;
+  /* Creates a responsive grid that fits as many columns as possible */
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 30px; /* Space between the cards */
+}
+
+/* === Main Heading === */
+.admin-dashboard h1 {
+  grid-column: 1 / -1; /* Make the title span all columns */
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 15px;
+}
+
+/* === Section Cards === */
+.admin-dashboard section {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-dashboard section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Make the 'Register School' card span the full width since it's the primary action */
+.admin-dashboard section:first-of-type {
+  grid-column: 1 / -1;
+}
+
+.admin-dashboard h2 {
+  font-size: 1.6rem;
+  color: #34495e;
+  margin-top: 0;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* === Form, Inputs, and Labels === */
+.admin-dashboard form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* Space between form elements */
+  color: black;
+}
+
+.admin-dashboard input[type="text"],
+.admin-dashboard input[type="email"],
+.admin-dashboard input[type="password"] {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  transition: border-color 0.3s, box-shadow 0.3s;
+  color: black;
+}
+
+.admin-dashboard input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+/* === Checkbox Styling === */
+.admin-dashboard label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #555;
+  cursor: pointer;
+  user-select: none;
+}
+
+.admin-dashboard input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #3498db; /* Modern way to color checkboxes */
+}
+
+/* === Button Styling === */
+.admin-dashboard button {
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #3498db; /* Primary action color */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 10px; /* Extra space above button */
+}
+
+.admin-dashboard button:hover {
+  background-color: #2980b9; /* Darker shade on hover */
+  transform: translateY(-2px);
+}
+
+/* Destructive action buttons (Delete) */
+.admin-dashboard section:nth-last-child(1) button,
+.admin-dashboard section:nth-last-child(2) button {
+  background-color: #e74c3c; /* Red for delete */
+}
+
+.admin-dashboard section:nth-last-child(1) button:hover,
+.admin-dashboard section:nth-last-child(2) button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
+/* === Media Query for slightly smaller PC screens/windows === */
+@media (max-width: 1024px) {
+  .admin-dashboard {
+    grid-template-columns: 1fr; /* Stack cards into a single column */
+    margin: 20px auto;
+  }
+
+  .admin-dashboard h1 {
+    font-size: 2.2rem;
+  }
+}

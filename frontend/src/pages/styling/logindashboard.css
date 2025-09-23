@@ -1,0 +1,159 @@
+/* Login Dashboard Styles */
+.dashboard-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(255, 153, 0, 0.05) 100%);
+  padding: 2rem;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.dashboard-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--secondary);
+  border-radius: 2px;
+}
+
+.login-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.login-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), transparent);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.login-box:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.login-box:hover::before {
+  opacity: 1;
+}
+
+.login-box h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific styles for each login box */
+.login-box.admin {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+}
+
+.login-box.school {
+  background: linear-gradient(135deg, var(--accent), #00a85e);
+}
+
+.login-box.student {
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+}
+
+.login-box.faculty {
+  background: linear-gradient(135deg, #6c63ff, #5048d3);
+}
+
+/* Add icons to each box */
+.login-box.admin::after {
+  content: '⚙';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+.login-box.school::after {
+  content: '🏫';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+.login-box.student::after {
+  content: '🎓';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+.login-box.faculty::after {
+  content: '👨‍🏫';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-boxes {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .dashboard-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+  
+  .login-box {
+    height: 150px;
+  }
+}

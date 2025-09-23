@@ -1,0 +1,145 @@
+/* ===== Global Styles ===== */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ===== Header & Navigation ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #ecf0f1;
+  color: #2c3e50;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: #dfe6e9;
+}
+
+.nav-btn.active {
+  background: #3498db;
+  color: white;
+}
+
+/* ===== Sections ===== */
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+/* ===== Dashboard Grid ===== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+/* ===== Content Grid ===== */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Cards ===== */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.card h2,
+.card h3 {
+  margin-top: 0;
+  color: #34495e;
+}
+
+/* ===== List Items ===== */
+.list-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.item-info h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.item-info p {
+  margin: 2px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ===== Status Colors ===== */
+.status-pending {
+  color: #e67e22;
+  font-weight: 600;
+}
+
+.status-approved {
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.status-rejected {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+/* ===== Map & Chart ===== */
+.map-card #map {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stats-card canvas {
+  width: 100% !important;
+  height: 300px !important;
+}

@@ -1,0 +1,228 @@
+/* Admin Styles - For both Login and Register */
+.admin-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(0, 102, 204, 0.1) 0%, rgba(255, 153, 0, 0.1) 100%);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-container::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-light), transparent);
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.admin-container::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary-light), transparent);
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.admin-form {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 450px;
+  z-index: 1;
+  position: relative;
+  transition: var(--transition);
+}
+
+.admin-form:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-5px);
+}
+
+.admin-form h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.admin-form h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--secondary);
+  border-radius: 2px;
+}
+
+.admin-form input {
+  width: 100%;
+  padding: 15px 20px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+  background: var(--light);
+}
+
+.admin-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+  background: var(--white);
+}
+
+.admin-form input::placeholder {
+  color: var(--gray);
+}
+
+.admin-form button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+}
+
+.admin-form button:hover {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  transform: translateY(-2px);
+}
+
+.message {
+  text-align: center;
+  padding: 12px;
+  margin-top: 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.message:not(:empty) {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form type indicators */
+.admin-form[data-form-type="login"] {
+  border-top: 4px solid var(--primary);
+}
+
+.admin-form[data-form-type="register"] {
+  border-top: 4px solid var(--accent);
+}
+
+.admin-form[data-form-type="login"]::before {
+  content: '⚙ Admin Login';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: var(--white);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.admin-form[data-form-type="register"]::before {
+  content: '👤 Admin Register';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--white);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Link to switch between forms */
+.form-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.form-switch a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.form-switch a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .admin-container {
+    padding: 1rem;
+  }
+  
+  .admin-form {
+    padding: 2rem 1.5rem;
+  }
+  
+  .admin-form::before {
+    font-size: 0.7rem;
+  }
+}
+
+/* CSS Variables */
+:root {
+  --primary: #0066cc;
+  --primary-light: #4d94ff;
+  --primary-dark: #004c99;
+  --secondary: #ff9900;
+  --secondary-light: #ffb84d;
+  --secondary-dark: #cc7a00;
+  --accent: #00cc66;
+  --dark: #1a1a2e;
+  --light: #f8f9fa;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  --white: #ffffff;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s ease;
+  --border-radius: 10px;
+}
